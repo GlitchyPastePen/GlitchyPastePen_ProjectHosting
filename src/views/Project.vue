@@ -41,7 +41,7 @@
             //         this.addScript(data.js);
             //     })
 
-            fetch("/.netlify/functions/code?project" + this.$route.params.project)
+            fetch("/.netlify/functions/code?project=" + this.$route.params.project)
             .then(req => req.json())
             .then(data => {
                 this.html = data.html;
