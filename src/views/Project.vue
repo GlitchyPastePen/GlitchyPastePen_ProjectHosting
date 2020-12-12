@@ -4,6 +4,19 @@
 
 <script>
 
+    // const mongoose = require("mongoose");
+    // mongoose.connect('mongodb+srv://khalby786:autobots786@gppprojectinfo.vzyse.mongodb.net/projects?retryWrites=true&w=majority', {
+    //     useMongoClient: true
+    // });
+
+    // const projectSchema = mongoose.Schema({
+    //     _id: mongoose.Schema.Types.ObjectId,
+    //     key: String,
+    //     value: String
+    // }, { collection : 'endb' });
+
+    // let Project = mongoose.model('Project', projectSchema);
+
     export default {
         name: 'Project',
         data: function() {
@@ -18,13 +31,23 @@
         //     VueScript
         // },
         created: function() {
-            fetch(`https://gppapi.now.sh/api/code?project=${this.$route.params.project}`)
-                .then(req => req.json())
-                .then(data => {
-                    this.html = data.html;
-                    this.addStyle(data.css)
-                    this.addScript(data.js);
-                })
+            console.log("let's see if this works!");
+
+            // fetch(`https://gppapi.now.sh/api/code?project=${this.$route.params.project}`)
+            //     .then(req => req.json())
+            //     .then(data => {
+            //         this.html = data.html;
+            //         this.addStyle(data.css)
+            //         this.addScript(data.js);
+            //     })
+
+            fetch("/.netlify/functions/code?project" + this.$route.params.project)
+            .then(req => req.json())
+            .then(data => {
+                this.html = data.html;
+                this.addStyle(data.css)
+                this.addScript(data.js); 
+            })
         },
         methods: {
             addStyle: function (styles) { 
