@@ -45,10 +45,10 @@
             .then(req => req.json())
             .then(data => {
                 console.log(data);
-                data = JSON.parse(data.value);
-                this.html = data.html;
-                this.addStyle(data.css)
-                this.addScript(data.js); 
+                therealthing = JSON.parse(data.value);
+                this.html = therealthing.html;
+                this.addStyle(therealthing.css)
+                this.addScript(therealthing.js); 
             })
         },
         methods: {
