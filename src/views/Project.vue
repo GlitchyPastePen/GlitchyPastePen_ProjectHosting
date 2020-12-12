@@ -45,7 +45,8 @@
             .then(req => req.json())
             .then(data => {
                 console.log(data);
-                therealthing = JSON.parse(data.value);
+                let therealthing = JSON.parse(data.value);
+                console.log(therealthing)
                 this.html = therealthing.html;
                 this.addStyle(therealthing.css)
                 this.addScript(therealthing.js); 
