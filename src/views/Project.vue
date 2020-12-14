@@ -33,24 +33,24 @@
         created: function() {
             console.log("let's see if this works!");
 
-            // fetch(`https://gppapi.now.sh/api/code?project=${this.$route.params.project}`)
-            //     .then(req => req.json())
-            //     .then(data => {
-            //         this.html = data.html;
-            //         this.addStyle(data.css)
-            //         this.addScript(data.js);
-            //     })
+            fetch(`https://gppapi.now.sh/api/code?project=${this.$route.params.project}`)
+                .then(req => req.json())
+                .then(data => {
+                    this.html = data.html;
+                    this.addStyle(data.css)
+                    this.addScript(data.js);
+                })
 
-            fetch("/.netlify/functions/code?project=" + this.$route.params.project)
-            .then(req => req.json())
-            .then(data => {
-                console.log(data);
-                let therealthing = JSON.parse(data.value);
-                console.log(therealthing)
-                this.html = therealthing.html;
-                this.addStyle(therealthing.css)
-                this.addScript(therealthing.js); 
-            })
+            // fetch("/.netlify/functions/code?project=" + this.$route.params.project)
+            // .then(req => req.json())
+            // .then(data => {
+            //     console.log(data);
+            //     let therealthing = JSON.parse(data.value);
+            //     console.log(therealthing)
+            //     this.html = therealthing.html;
+            //     this.addStyle(therealthing.css)
+            //     this.addScript(therealthing.js); 
+            // })
         },
         methods: {
             addStyle: function (styles) { 
